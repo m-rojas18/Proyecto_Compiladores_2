@@ -1,14 +1,20 @@
 lexer grammar Lexer;
-//options {caseInsensitive = true;}
+options { caseInsensitive = true; }
 
 //Palabras reservadas
 PROGRAM : 'program';
 BEGIN : 'begin';
 END: 'end';
+VAR: 'var';
+BOOLEAN : 'boolean';
+CHAR: 'char';
+INTEGER: 'integer';
 WHILE : 'while';
 DO : 'do';
 WRITE : 'write';
 WRITELN: 'writeln';
+READ: 'read';
+READLN: 'readln';
 IF: 'if';
 ELSE: 'else';
 FOR: 'for';
@@ -28,11 +34,13 @@ fragment LETRA : [a-z] | [A-Z] | '_';
 ID : LETRA(LETRA | DIGITO)*;
 
 //Integer
-INTEGER : DIGITO+;
+INTEGER_VAL: DIGITO+;
 
 //Char
+CHAR_VAL : '\''.'\'';
+
 //Boolean
-BOOLEAN : 'true' | 'false';
+BOOLEAN_VAL : 'true' | 'false';
 //Operadores Aritmeticos
 OPSUM : '+' | '-';
 OPMULT : '*' | '/' | DIV | MOD;
@@ -43,9 +51,9 @@ OPREL : '<>'|'='|'>'|'<'|'>='|'<=';
 //Operadores booleanos
 OPBOOL: AND | OR | NOT ;
 
+
 //Asginacion
 ASIGNACION : ':=';
-
 SEMICOLON: ';';
 PUNTO: '.';
 COMMA: ',';
@@ -54,17 +62,20 @@ LPAR : '(';
 RPAR : ')';
 R_BRACKET: ']';
 L_BRACKET: '[';
-INICIO_COMMENT: '{' -> pushMode(COMMENT);
 
 //Constante String
 
-//Comments
+
 //WhiteSpace
 WS : [ \r\t\n]+ -> skip;
 
-
+//Comentarios
+INICIO_COMMENT: '{' -> skip, pushMode(COMMENT);
 
 mode COMMENT;
 //Fin comentario
-FIN_COMMENT : '}' -> popMode;
+
+FIN_COMMENT : '}' -> skip, popMode;
+NL: '\n' -> skip;
+VALOR: . -> skip;
 //Ignorar el resto
