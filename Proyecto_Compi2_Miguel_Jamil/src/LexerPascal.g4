@@ -69,7 +69,7 @@ PUNTOCOMA|LPAR|RPAR| | R_BRACKET | L_BRACKET | COLON | OPBOOL | OPREL | OPMULT |
 CHAR_VAL : '\'' (LETRA | DIGITO | CARACTERES_ESP)'\'';
 
 //Constante String
-CONSTSTRING: '\''(LETRA | DIGITO | CARACTERES_ESP) '\'';
+//CONSTSTRING: '\''(LETRA | DIGITO | CARACTERES_ESP) '\'';
 
 //WhiteSpace
 WS : [ \r\t\n]+ -> skip;
