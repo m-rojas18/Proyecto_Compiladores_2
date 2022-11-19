@@ -1,8 +1,8 @@
-lexer grammar Lexer;
-options { caseInsensitive = true; }
+lexer grammar LexerPascal;
+
 
 //Palabras reservadas
-PROGRAM : 'program';
+P_PROGRAM : 'program';
 BEGIN : 'begin';
 END: 'end';
 VAR: 'var';
@@ -36,8 +36,6 @@ ID : LETRA(LETRA | DIGITO)*;
 //Integer
 INTEGER_VAL: DIGITO+;
 
-//Char
-CHAR_VAL : '\''.'\'';
 
 //Boolean
 BOOLEAN_VAL : 'true' | 'false';
@@ -54,7 +52,7 @@ OPBOOL: AND | OR | NOT ;
 
 //Asginacion
 ASIGNACION : ':=';
-SEMICOLON: ';';
+PUNTOCOMA: ';';
 PUNTO: '.';
 COMMA: ',';
 COLON: ':';
@@ -63,11 +61,21 @@ RPAR : ')';
 R_BRACKET: ']';
 L_BRACKET: '[';
 
-//Constante String
+//Caracteres Especiales
+CARACTERES_ESP : PUNTO| ' ' |'-'|'@'|'#'|'$'|'%'|'^'|'&'|'!' |'?'|'/'|'\''.|COMMA|
+PUNTOCOMA|LPAR|RPAR| | R_BRACKET | L_BRACKET | COLON | OPBOOL | OPREL | OPMULT | OPSUM;
 
+//Char
+CHAR_VAL : '\'' (LETRA | DIGITO | CARACTERES_ESP)'\'';
+
+//Constante String
+CONSTSTRING: '\''(LETRA | DIGITO | CARACTERES_ESP) '\'';
 
 //WhiteSpace
 WS : [ \r\t\n]+ -> skip;
+
+//Simbolos error léxico
+LEX_ERROR_SYMBOL: .  {System.out.println("Error Lexico. Token invalido: < en linea: ");};
 
 //Comentarios
 INICIO_COMMENT: '{' -> skip, pushMode(COMMENT);
