@@ -2,7 +2,7 @@ parser grammar ParserPascal;
 
 options {tokenVocab = LexerPascal;}
 
-programa: inicioPrograma cuerpoPrograma;
+programa: inicioPrograma sentencia_compuesta;
 
 inicioPrograma:     PROGRAM ID PUNTOCOMA
                 |   PROGRAM ID LPAR listaIdentificadores RPAR PUNTOCOMA;
@@ -10,18 +10,37 @@ inicioPrograma:     PROGRAM ID PUNTOCOMA
 listaIdentificadores:   ID
                     |   listaIdentificadores COMA ID;
 
-cuerpoPrograma: BEGIN sentencias END;
+sentencia_compuesta: BEGIN sentencias_opcionales END;
 
-sentencias: sentenciaAsig
-          | cuerpoPrograma
-          | statements;
-
+sentencias_opcionales: lista_sentencias
+          |/*lambda*/
+          ;
+lista_sentencias : sentencia PUNTOCOMA
+                |lista_sentencias sentencia PUNTOCOMA
+                ;
+sentencia: sentenciaAsignacion
+        | sentencia_compuesta
+        | sentencia_condicional
+        | sentencia_ciclo
+        | sentencia_funciones
+        ;
 //alternativo tipo de variable
-sentenciaAsig:  ID ASIGNACION expresion PUNTOCOMA;
+sentenciaAsignacion:  ID ASIGNACION expresion PUNTOCOMA;
+
+sentencia_condicional: IF expresion THEN sentencia ELSE sentencia
+                    | IF expresion THEN sentencia
+                    ;
+sentencia_ciclo: WHILE expresion DO sentencia
+                | FOR ID ASIGNACION expresion TO expresion DO SENTENCIA
+                | REPEAT sentencia UNTIL expresion
+                ;
+//* Arreglar const string
+sentencia_funciones: READ LPAR ID RPAR
+                | WRITE LPAR CONST_STR RPAR
+                | WRITE LPAR CONST_STR COMMA ID RPAR
+                ;
 
 expresion: ;
-
-statements: ;
 
 constanteVariable:  INTEGER_VAL
                   | CHAR_VAL
