@@ -44,8 +44,9 @@ OPSUM : '+' | '-';
 OPMULT : '*' | '/' | DIV | MOD;
 
 //Operadores Relacionales
-OPREL : '<>'|'='|'>'|'<'|'>='|'<=';
+OPREL : '<>'|'>'|'<'|'>='|'<=';
 
+EQUALS: '=';
 //Operadores booleanos
 OPBOOL: AND | OR | NOT ;
 
