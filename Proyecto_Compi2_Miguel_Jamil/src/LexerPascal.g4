@@ -48,7 +48,7 @@ OPREL : '<>'|'>'|'<'|'>='|'<=';
 
 EQUALS: '=';
 //Operadores booleanos
-OPBOOL: AND | OR | NOT ;
+OPBOOL: AND | OR ;
 
 
 //Asginacion
@@ -64,22 +64,24 @@ L_BRACKET: '[';
 
 //Caracteres Especiales
 CARACTERES_ESP : PUNTO| ' ' |'-'|'@'|'#'|'$'|'%'|'^'|'&'|'!' |'?'|'/'|'\''.|COMMA|
-PUNTOCOMA|LPAR|RPAR| | R_BRACKET | L_BRACKET | COLON | OPBOOL | OPREL | OPMULT | OPSUM;
+PUNTOCOMA|LPAR|RPAR| R_BRACKET | L_BRACKET | COLON | OPBOOL | OPREL | OPSUM;
 
 //Char
 CHAR_VAL : '\'' (LETRA | DIGITO | CARACTERES_ESP)'\'';
 
 //Constante String
-//CONSTSTRING: '\''(LETRA | DIGITO | CARACTERES_ESP) '\'';
+CONSTSTRING: '\''(LETRA | DIGITO | CARACTERES_ESP)+ '\'';
 
-//WhiteSpace
-WS : [ \r\t\n]+ -> skip;
+
+
+//Comentarios
+INICIO_COMMENT: '{' -> skip, pushMode(COMMENT);
 
 //Simbolos error léxico
 LEX_ERROR_SYMBOL: .  {System.out.println("Error Lexico. Token invalido: < en linea: ");};
 
-//Comentarios
-INICIO_COMMENT: '{' -> skip, pushMode(COMMENT);
+//WhiteSpace
+WS : [ \r\t\n]+ -> skip;
 
 mode COMMENT;
 //Fin comentario

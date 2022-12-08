@@ -33,15 +33,13 @@ sentencia: sentenciaAsignacion
         | sentencia_funciones
         ;
 //alternativo tipo de variable
-sentenciaAsignacion:  ID ASIGNACION expresion PUNTOCOMA
-                    |
-                    ;
+sentenciaAsignacion:  ID ASIGNACION expresion PUNTOCOMA;
 
 sentencia_condicional: IF expresion THEN sentencia ELSE sentencia
                     | IF expresion THEN sentencia
                     ;
 sentencia_ciclo: WHILE expresion DO sentencia
-                | FOR ID ASIGNACION expresion TO expresion DO SENTENCIA
+                | FOR ID ASIGNACION expresion TO expresion DO sentencia
                 | REPEAT sentencia UNTIL expresion
                 ;
 //* Arreglar const string
@@ -53,10 +51,27 @@ sentencia_funciones: READ LPAR ID RPAR
 expresion: expresion_Simple
             | expresion_Simple EQUALS expresion_Simple
             |expresion_Simple OPREL expresion_Simple
+            | expresionBooleana
             ;
+
+expresionBooleana: expresion_Simple OPBOOL expresion_Simple
+                    | NOT expresion
+                    ;
 expresion_Simple:termino
-                |
+                |expresion_Simple OPSUM termino
                 ;
+
+
+termino:    operando
+        |  termino OPMULT operando
+        ;
+
+operando: ID
+            | LPAR expresion RPAR
+            | constanteVariable
+            | NIL
+            | NOT operando
+            ;
 constanteVariable:  INTEGER_VAL
                   | CHAR_VAL
                   | BOOLEAN_VAR;
