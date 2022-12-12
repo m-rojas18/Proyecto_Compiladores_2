@@ -27,6 +27,7 @@ MOD: 'mod';
 AND: 'and';
 OR: 'or';
 NOT: 'not';
+TO: 'to';
 
 fragment  DIGITO : [0-9];
 fragment LETRA : [a-z] | [A-Z] | '_';
@@ -63,7 +64,7 @@ R_BRACKET: ']';
 L_BRACKET: '[';
 
 //Caracteres Especiales
-CARACTERES_ESP : PUNTO| ' ' |'-'|'@'|'#'|'$'|'%'|'^'|'&'|'!' |'?'|'/'|'\''.|COMMA|
+CARACTERES_ESP : PUNTO |'-'|'@'|'#'|'$'|'%'|'^'|'&'|'!' |'?'|'\''|COMMA|
 PUNTOCOMA|LPAR|RPAR| R_BRACKET | L_BRACKET | COLON | OPBOOL | OPREL | OPSUM;
 
 //Char

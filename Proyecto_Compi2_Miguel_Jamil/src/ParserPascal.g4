@@ -4,11 +4,11 @@ options {tokenVocab = LexerPascal;}
 
 programa: inicioPrograma declaraciones;
 
-inicioPrograma:     PROGRAM ID PUNTOCOMA
-                |   PROGRAM ID LPAR listaIdentificadores RPAR PUNTOCOMA;
+inicioPrograma:     P_PROGRAM ID PUNTOCOMA
+                |   P_PROGRAM ID LPAR listaIdentificadores RPAR PUNTOCOMA;
 
 listaIdentificadores:   ID
-                    |   listaIdentificadores COMA ID;
+                    |   listaIdentificadores COMMA ID;
 
 declaraciones: espacioDeclaracionVar sentencia_compuesta;
 
@@ -44,8 +44,8 @@ sentencia_ciclo: WHILE expresion DO sentencia
                 ;
 //* Arreglar const string
 sentencia_funciones: READ LPAR ID RPAR
-                | WRITE LPAR CONST_STR RPAR
-                | WRITE LPAR CONST_STR COMMA ID RPAR
+                | WRITE LPAR CONSTSTRING RPAR
+                | WRITE LPAR CONSTSTRING COMMA ID RPAR
                 ;
 
 expresion: expresion_Simple
@@ -74,7 +74,7 @@ operando: ID
             ;
 constanteVariable:  INTEGER_VAL
                   | CHAR_VAL
-                  | BOOLEAN_VAR;
+                  | BOOLEAN_VAL;
 
 especificadorTipo:  INTEGER
                   | CHAR
