@@ -12,20 +12,21 @@ listaIdentificadores:   ID
 
 declaraciones: espacioDeclaracionVar sentencia_compuesta;
 
-espacioDeclaracionVar: VAR listaDeclaracionVar;
+espacioDeclaracionVar: VAR listaDeclaracionVar
+                    |/*lambda*/;
 
 listaDeclaracionVar : listaDeclaracionVar ID COLON especificadorTipo PUNTOCOMA
                     | ID COLON especificadorTipo PUNTOCOMA
                     ;
 
-sentencia_compuesta: BEGIN sentencias_opcionales END;
+sentencia_compuesta: BEGIN sentencias_opcionales END
+                    ;
 
-sentencias_opcionales: lista_sentencias
+sentencias_opcionales: sentencia
+            |sentencias_opcionales sentencia
           |/*lambda*/
           ;
-lista_sentencias : sentencia PUNTOCOMA
-                |lista_sentencias sentencia PUNTOCOMA
-                ;
+
 sentencia: sentenciaAsignacion
         | sentencia_compuesta
         | sentencia_condicional
@@ -44,7 +45,7 @@ sentencia_ciclo: WHILE expresion DO sentencia
                 ;
 //* Arreglar const string
 sentencia_funciones: READ LPAR ID RPAR
-                | WRITE LPAR CONSTSTRING RPAR
+                | WRITE LPAR CONSTSTRING RPAR PUNTOCOMA
                 | WRITE LPAR CONSTSTRING COMMA ID RPAR
                 ;
 
