@@ -24,10 +24,10 @@ UNTIL: 'until';
 NIL: 'nil';
 DIV: 'div';
 MOD: 'mod';
-AND: 'and';
-OR: 'or';
 NOT: 'not';
 TO: 'to';
+//Operadores booleanos
+OPBOOL: 'and' | 'or' ;
 
 fragment  DIGITO : [0-9];
 fragment LETRA : [a-z] | [A-Z] | '_';
@@ -48,8 +48,7 @@ OPMULT : '*' | '/' | DIV | MOD;
 OPREL : '<>'|'>'|'<'|'>='|'<=';
 
 EQUALS: '=';
-//Operadores booleanos
-OPBOOL: AND | OR ;
+
 
 
 //Asginacion
