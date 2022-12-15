@@ -38,46 +38,6 @@ ID : LETRA(LETRA | DIGITO)*;
 INTEGER_VAL: DIGITO+;
 
 
-lexer grammar LexerPascal;
-
-
-//Palabras reservadas
-P_PROGRAM : 'program';
-BEGIN : 'begin';
-END: 'end';
-VAR: 'var';
-BOOLEAN : 'boolean';
-CHAR: 'char';
-INTEGER: 'integer';
-WHILE : 'while';
-DO : 'do';
-WRITE : 'write';
-WRITELN: 'writeln';
-READ: 'read';
-READLN: 'readln';
-IF: 'if';
-ELSE: 'else';
-FOR: 'for';
-REPEAT: 'repeat';
-THEN: 'then';
-UNTIL: 'until';
-NIL: 'nil';
-DIV: 'div';
-MOD: 'mod';
-AND: 'and';
-OR: 'or';
-NOT: 'not';
-TO: 'to';
-
-fragment  DIGITO : [0-9];
-fragment LETRA : [a-z] | [A-Z] | '_';
-//Identificador
-ID : LETRA(LETRA | DIGITO)*;
-
-//Integer
-INTEGER_VAL: DIGITO+;
-
-
 //Boolean
 BOOLEAN_VAL : 'true' | 'false';
 //Operadores Aritmeticos
