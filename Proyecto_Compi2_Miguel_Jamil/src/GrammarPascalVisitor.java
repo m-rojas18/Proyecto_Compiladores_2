@@ -1,4 +1,4 @@
-// Generated from /Users/miguel/Documents/UNITEC/4 year/Trimestre 14/Compiladores II/Proyecto/Proyecto_Compiladores_2/Proyecto_Compi2_Miguel_Jamil/src/GrammarPascal.g4 by ANTLR 4.10.1
+// Generated from java-escape by ANTLR 4.11.1
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -28,6 +28,12 @@ public interface GrammarPascalVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitListaIdentificadores(GrammarPascalParser.ListaIdentificadoresContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link GrammarPascalParser#identificador}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIdentificador(GrammarPascalParser.IdentificadorContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link GrammarPascalParser#declaraciones}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -51,12 +57,6 @@ public interface GrammarPascalVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSentencia_compuesta(GrammarPascalParser.Sentencia_compuestaContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link GrammarPascalParser#sentencias_opcionales}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSentencias_opcionales(GrammarPascalParser.Sentencias_opcionalesContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link GrammarPascalParser#sentencia}.
 	 * @param ctx the parse tree

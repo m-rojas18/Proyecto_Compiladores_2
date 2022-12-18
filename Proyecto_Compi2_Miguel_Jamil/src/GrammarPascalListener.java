@@ -1,4 +1,4 @@
-// Generated from /Users/miguel/Documents/UNITEC/4 year/Trimestre 14/Compiladores II/Proyecto/Proyecto_Compiladores_2/Proyecto_Compi2_Miguel_Jamil/src/GrammarPascal.g4 by ANTLR 4.10.1
+// Generated from java-escape by ANTLR 4.11.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -36,6 +36,16 @@ public interface GrammarPascalListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitListaIdentificadores(GrammarPascalParser.ListaIdentificadoresContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link GrammarPascalParser#identificador}.
+	 * @param ctx the parse tree
+	 */
+	void enterIdentificador(GrammarPascalParser.IdentificadorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link GrammarPascalParser#identificador}.
+	 * @param ctx the parse tree
+	 */
+	void exitIdentificador(GrammarPascalParser.IdentificadorContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GrammarPascalParser#declaraciones}.
 	 * @param ctx the parse tree
@@ -76,16 +86,6 @@ public interface GrammarPascalListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitSentencia_compuesta(GrammarPascalParser.Sentencia_compuestaContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link GrammarPascalParser#sentencias_opcionales}.
-	 * @param ctx the parse tree
-	 */
-	void enterSentencias_opcionales(GrammarPascalParser.Sentencias_opcionalesContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link GrammarPascalParser#sentencias_opcionales}.
-	 * @param ctx the parse tree
-	 */
-	void exitSentencias_opcionales(GrammarPascalParser.Sentencias_opcionalesContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GrammarPascalParser#sentencia}.
 	 * @param ctx the parse tree

@@ -1,4 +1,4 @@
-// Generated from /Users/miguel/Documents/UNITEC/4 year/Trimestre 14/Compiladores II/Proyecto/Proyecto_Compiladores_2/Proyecto_Compi2_Miguel_Jamil/src/GrammarPascal.g4 by ANTLR 4.10.1
+// Generated from java-escape by ANTLR 4.11.1
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -9,6 +9,7 @@ import org.antlr.v4.runtime.tree.TerminalNode;
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
+@SuppressWarnings("CheckReturnValue")
 public class GrammarPascalBaseListener implements GrammarPascalListener {
 	/**
 	 * {@inheritDoc}
@@ -46,6 +47,18 @@ public class GrammarPascalBaseListener implements GrammarPascalListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitListaIdentificadores(GrammarPascalParser.ListaIdentificadoresContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIdentificador(GrammarPascalParser.IdentificadorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIdentificador(GrammarPascalParser.IdentificadorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -94,18 +107,6 @@ public class GrammarPascalBaseListener implements GrammarPascalListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitSentencia_compuesta(GrammarPascalParser.Sentencia_compuestaContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterSentencias_opcionales(GrammarPascalParser.Sentencias_opcionalesContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSentencias_opcionales(GrammarPascalParser.Sentencias_opcionalesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
