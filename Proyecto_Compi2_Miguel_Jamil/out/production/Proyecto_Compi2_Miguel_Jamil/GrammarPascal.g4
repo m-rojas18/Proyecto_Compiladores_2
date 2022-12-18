@@ -33,6 +33,7 @@ sentencia: sentenciaAsignacion
         ;
 //alternativo tipo de variable
 sentenciaAsignacion:  ID ASIGNACION expresion PUNTOCOMA;
+
 sentencia_condicional:  IF expresion THEN sentencia (ELSE)? (sentencia)?;
 
 
@@ -42,10 +43,10 @@ sentencia_ciclo: WHILE expresion DO sentencia
                 ;
 //* Arreglar const string
 sentencia_funciones: READ LPAR ID RPAR
-                | WRITE LPAR constanteVariable RPAR PUNTOCOMA
-                | WRITE LPAR constanteVariable COMMA ID RPAR
+                | WRITE LPAR (CONSTSTRING | ID) RPAR PUNTOCOMA
+                | WRITE LPAR (CONSTSTRING | ID) COMMA ID RPAR
                 | WRITELN PUNTOCOMA
-                | WRITELN LPAR (constanteVariable | ID) RPAR PUNTOCOMA
+                | WRITELN LPAR (CONSTSTRING | ID) RPAR PUNTOCOMA
                 ;
 
 expresion: expresion_Simple
@@ -83,7 +84,6 @@ operando: ID
 constanteVariable:  INTEGER_VAL
                   | CHAR_VAL
                   | BOOLEAN_VAL
-                  | CONSTSTRING
                   | signo INTEGER_VAL
                   ;
 

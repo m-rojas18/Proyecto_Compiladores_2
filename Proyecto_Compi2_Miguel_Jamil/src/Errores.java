@@ -43,6 +43,11 @@ public class Errores {
         this.tokenInvalido = tokenInvalido;
     }
 
+    public String getMensajeError() {
+        return "Error " + getTipo() +", token invalido : " + getTokenInvalido() +
+                " (linea: " + getLinea() + ", columna: " + getColumna() + "); "
+                ;
+    }
     @java.lang.Override
     public java.lang.String toString() {
         return "Error " + getTipo() +", token invalido : " + getTokenInvalido() +
