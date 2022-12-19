@@ -1,0 +1,11 @@
+
+Analisis semantico logrado:
+Se logro realizar el chequeo de unicidad:
+    - Valores repetidos no son permitidos.
+
+
+Se logro realizar chequeo de control de flujo:
+    -Declaracion de una variable debe ocurrir antes de asignar un valor
+
+Se logro realizar de chequeo de tipos:
+    -Las expresiones asignadas a una variable deben ser compatibles con la variable

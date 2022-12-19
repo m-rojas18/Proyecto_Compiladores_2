@@ -19,7 +19,7 @@ espacioDeclaracionVar: VAR listaDeclaracionVar
                     |/*lambda*/;
 
 listaDeclaracionVar :  listaIdentificadores COLON especificadorTipo PUNTOCOMA listaDeclaracionVar
-                    | listaIdentificadores COLON especificadorTipo PUNTOCOMA {System.out.println("Declarando variable");}
+                    | listaIdentificadores COLON especificadorTipo PUNTOCOMA
                     ;
 
 sentencia_compuesta: BEGIN (sentencia)* END (PUNTOCOMA)?;
@@ -42,11 +42,12 @@ sentencia_ciclo: WHILE expresion DO sentencia
                 | REPEAT sentencia UNTIL expresion
                 ;
 //* Arreglar const string
-sentencia_funciones: READ LPAR ID RPAR
+sentencia_funciones: READ LPAR ID RPAR PUNTOCOMA
                 | WRITE LPAR (CONSTSTRING | ID) RPAR PUNTOCOMA
-                | WRITE LPAR (CONSTSTRING | ID) COMMA ID RPAR
+                | WRITE LPAR (CONSTSTRING | ID) COMMA ID RPAR PUNTOCOMA
                 | WRITELN PUNTOCOMA
                 | WRITELN LPAR (CONSTSTRING | ID) RPAR PUNTOCOMA
+                |  WRITELN LPAR (CONSTSTRING | ID) COMMA ID RPAR PUNTOCOMA
                 ;
 
 expresion: expresion_Simple
@@ -116,8 +117,6 @@ REPEAT: 'repeat';
 THEN: 'then';
 UNTIL: 'until';
 NIL: 'nil';
-DIV: 'div';
-MOD: 'mod';
 NOT: 'not';
 TO: 'to';
 //Operadores booleanos
@@ -128,21 +127,21 @@ BOOLEAN_VAL : 'true' | 'false';
 
 fragment  DIGITO : [0-9];
 fragment LETRA : [a-z]  | '_';
-//Identificador
-ID : LETRA(LETRA | DIGITO)*;
+
 //Integer
 INTEGER_VAL: DIGITO+;
 
 //Operadores Aritmeticos
 OPSUM : '+' | '-';
-OPMULT : '*' | '/' | DIV | MOD;
+OPMULT : '*' | '/' | 'div' | 'mod';
+
+//Identificador
+ID : LETRA(LETRA | DIGITO)*;
 
 //Operadores Relacionales
 OPREL : '<>'|'>'|'<'|'>='|'<=';
 
 EQUALS: '=';
-
-
 
 //Asginacion
 ASIGNACION : ':=';

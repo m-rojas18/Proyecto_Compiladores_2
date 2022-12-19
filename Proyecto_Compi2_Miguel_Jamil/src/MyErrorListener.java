@@ -24,14 +24,14 @@ public class MyErrorListener extends BaseErrorListener{
         String input = tokens.getTokenSource().getInputStream().toString();
         String[] lines = input.split("\n");
         String errorLine = lines[linea - 1];
-        erroresSintacticos.add(errorLine);
+        //erroresSintacticos.add(errorLine);
         //System.err.println(errorLine);
         String inidicador ="";
         for (int i=0; i<columna; i++) inidicador += " ";//System.err.print(" ");
         int start = offendingToken.getStartIndex();
         int stop = offendingToken.getStopIndex();
         if ( start>=0 && stop>=0 ) {
-            for (int i=start; i<=stop; i++) erroresSintacticos.add(inidicador + "^");//System.err.print("^");
+            //erroresSintacticos.add(inidicador + "^");//System.err.print("^");
         }
         //erroresSintacticos.add("\n");
         //System.err.println();
